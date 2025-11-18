@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>humburgur Navbar</title>
+    <link rel="stylesheet" href="humburgur.css">
+</head>
+<body>
+    <nav>
+
+        <ul class="sidebar">
+            <li onclick=hidesidebar()><a href="#"><img src="/img/close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" alt="close icon"></a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Forum</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+
+        <ul>
+            <li><a href="#">humburgur Nav</a></li>
+            <li class="hideonmobile"><a href="#">Products</a></li>
+            <li class="hideonmobile"><a href="#">About</a></li>
+            <li class="hideonmobile"><a href="#">Forum</a></li>
+            <li class="hideonmobile"><a href="#">Login</a></li>
+            <li class="hideonmobile"><a href="#">Blog</a></li>
+            <li class="menu-btn" onclick=showSidebar()><a href="#"><img src="/img/menu_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" alt="menu icon"></a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function showSidebar(){
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'flex'
+        }
+
+        function hidesidebar(){
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'none'
+        }
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,447 @@
+/* BASE RULES */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    /* font-family: "Jost" serif; */
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    scroll-behavior: smooth;
+}
+
+html {
+    font-size: 62.5%;
+     /* 1rem = 10px */
+     scroll-behavior: smooth;
+     scroll-snap-type: y mandatory;
+     overflow-x: hidden;
+} 
+
+
+/***** scrollbar *****/ 
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--background-color);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+} 
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--accent-color);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--nav-dropdown-hover-color);
+} 
+
+ /***** End scrollbar *****/
+
+/* THEME */
+
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root { 
+    --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+    --default-color: #3d4348; /* Default color used for the majority of the text content across the entire website */
+    --heading-color: #3e5055; /* Color for headings, subheadings and title throughout the website */
+    --accent-color: #388da8; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+    --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+    --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  }
+
+  /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+:root {
+    --nav-color: #313336;  /* The default color of the main navmenu links */
+    --nav-hover-color: #77b6ca; /* Applied to main navmenu links when they are hovered over or active */
+    --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
+    --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+    --nav-dropdown-color: #313336; /* Used for navigation links of the dropdown items in the navigation menu. */
+    --nav-dropdown-hover-color: #77b6ca; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  }
+
+  /* Fonts */
+:root {
+  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Nunito",  sans-serif;
+  --nav-font: "Inter",  sans-serif;
+}
+
+/* LAYOUT */
+
+/* MODULE / REUSABLE */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+
+/* STATES */
+
+
+/***** Nevbar Section *****/ 
+
+.navbar-section {
+  position: fixed;            
+  top: 0;                     
+  left: 0;
+  z-index: 999;
+  /* width: 100%; */
+  width: calc(100% - 10px);
+  height: 10rem;
+  background-color: var(--background-color);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo {
+  width: 15%;
+  height: 7rem;
+  background-color:var(--background-color);
+  margin-right: 12rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.nav-link {
+  width: 50%;
+  height: 7rem;
+  background-color: var(--background-color);
+  margin-left: 12rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+#logo-img {
+  width: 4rem;
+  height: 4rem;
+}
+
+.nav-heading {
+  font-size: 3.2rem;
+  font-weight: 550;
+  letter-spacing: 0.1rem;
+  /* font-family: var(--default-font); */
+}
+
+.nav-ul-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.nav-list-links {
+  font-size: 2rem;
+  color: var(--heading-color);
+}
+
+.nav-btn {
+  width: 12rem;
+  font-size: 1.5rem;
+  font-family: var(--nav-font);
+  color: var(--background-color);
+  background-color: var(--accent-color);
+  padding: 1rem;
+  border: 0px;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+}
+
+/* ** State Of Navbar Section */
+
+.nav-btn:hover {
+  background-color: var(--nav-dropdown-hover-color);
+}
+
+.nav-list-links:hover {
+  color: var(--nav-dropdown-hover-color);
+}
+
+.nav-list-links:active {
+  color: var(--nav-dropdown-hover-color);
+}
+
+
+
+/* ? navbar media quiry */
+
+
+@media (width <= 576px) {
+
+  html {
+      font-size: 28.50%;
+      /* box-sizing: border-box; */
+  }
+
+  /* .navbar-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  } */
+
+  .nav-link {
+      flex: 1 1 33.33%;   
+    box-sizing: border-box;
+  }
+
+  .nav-logo {
+    margin-right: 0;
+    margin-left: 10rem;
+  }
+}
+
+@media (width >= 576px) {
+  html {
+    font-size: 30.50%;
+    box-sizing: border-box;
+  }
+
+  .nav-link {
+    width: 60%;
+    margin-left: 10rem;
+  }
+
+   .nav-logo {
+    margin-right: 0;
+    margin-left: 10rem;
+  }
+}
+
+@media (width >= 768px) {
+  html {
+    font-size: 45.50%;
+    box-sizing: border-box;
+  }
+
+  .nav-link {
+    width: 70%;
+    margin-left: 10rem;
+  }
+
+  .nav-logo {
+    margin-left: 8rem;
+  }
+}
+
+@media (width >= 992px) {
+  html {
+    font-size: 55.5%;
+    box-sizing: border-box;
+  }
+
+  .nav-link {
+    width: 70%;
+    margin-left: 8rem;
+  }
+
+  .nav-logo{
+    width: 15%;
+    margin-left: 8rem;
+  }
+
+  
+}
+
+@media (width >= 1200px) {
+  html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+  }
+
+  .nav-link {
+    width: 70%;
+    margin-left: 12rem;
+  }
+
+  .nav-logo {
+    margin-left: 12rem;
+  }
+}
+
+
+ /***** End Nevbar Section *****/
+
+
+
+ /*****  Start Home Section *****/ 
+
+
+.section-one {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-image: url(/img/hero-bg-light.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow-x: hidden; /* to prevent scrollbars */
+  z-index: 10;
+}
+
+.section-one::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1;
+  height: 140%;
+  pointer-events: none;
+}
+
+/* .section-one p, */
+.section-one .home-welcome,
+.section-one .home-img {
+  position: relative;
+  z-index: 2;
+  color: black;
+  font-size: 2rem;
+  text-align: center;
+  top: 40%;
+}
+
+.home-welcome {
+  width: 70vw;
+  height: 40vh;
+  /* background-color: pink; */
+  padding: 2rem;
+  margin: 2rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+
+  & h1 {
+    font-size: 4.5rem;
+
+    span{
+      color: var(--accent-color);
+    }
+  }
+
+  p{
+    margin-top: 1.5rem;
+    color: var(--nav-dropdown-color);
+    font-family: var(--default-font);
+    transition: 0.3s;
+}
+
+  .home-botton {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+
+    .btn-one {
+  width: 13rem;
+  height: auto;
+  font-size: 1.5rem;
+  font-family: var(--nav-font);
+  color: var(--background-color);
+  background-color: var(--accent-color);
+  padding: 1rem;
+  border: 0px;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+}
+
+.btn-one:hover {
+  background-color: var(--nav-dropdown-hover-color);
+}
+
+.btn-two {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: 15rem;
+  font-size: 1.6rem;
+  font-weight: 550;
+  font-family: var(--nav-font);
+  background-color: transparent;
+  color: var(--heading-color);
+  padding: 1rem;
+  border: 0px;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+
+  i {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+  }
+}
+
+  }
+}
+
+.home-img {
+  width: 60vw;
+  height: 80vh;
+  background-color: transparent;
+  margin-top: 11rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  background-image: url(/img/hero-services-img.webp);
+  background-size: 75% auto;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+/* .section-two {
+  width: 100vw;
+  height: 70vh;
+  margin-top: 0;
+  background-color:yellow;
+} */
+
+
+
+  /***** Start Home Section *****/
+ 
